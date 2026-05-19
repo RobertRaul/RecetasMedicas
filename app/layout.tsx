@@ -1,11 +1,18 @@
 import type { Metadata } from "next"
-import { Geist } from "next/font/google"
+import { Geist, Allura } from "next/font/google"
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+})
+
+const allura = Allura({
+  variable: "--font-cursive",
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -20,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${allura.variable} antialiased`}
+      >
         {children}
         <Toaster richColors position="top-right" />
       </body>

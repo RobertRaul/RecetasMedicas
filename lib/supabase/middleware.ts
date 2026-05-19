@@ -31,8 +31,8 @@ export async function updateSession(request: NextRequest) {
 
   const { pathname } = request.nextUrl
 
-  // Rutas públicas
-  const publicPaths = ['/login', '/registro']
+  // Rutas públicas (registro restringido: solo el admin crea cuentas desde Supabase)
+  const publicPaths = ['/login']
   const isPublicPath = publicPaths.some((p) => pathname.startsWith(p))
 
   if (!user && !isPublicPath) {

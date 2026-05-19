@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils"
 import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
+import { GlobalSearchTrigger } from "@/components/shared/GlobalSearch"
 
 const navItems = [
   { href: "/", label: "Inicio", icon: LayoutDashboard },
@@ -40,6 +41,10 @@ export function Sidebar() {
         <span className="font-semibold text-blue-900 leading-tight text-sm">
           Recetas<br />Médicas
         </span>
+      </div>
+
+      <div className="border-b p-3">
+        <GlobalSearchTrigger />
       </div>
 
       <nav className="flex-1 space-y-1 p-3">
