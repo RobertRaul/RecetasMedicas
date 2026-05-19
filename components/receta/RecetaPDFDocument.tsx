@@ -27,15 +27,24 @@ const BLUE = "#1e40af"
 const DARK = "#0f172a"
 
 // ----------------------------------------------------------------------------
-// Recursos estáticos
+// Recursos estáticos.
+// Importante: usamos paths LITERALES con path.join(process.cwd(), ...) para
+// que el Node File Trace de Vercel detecte los archivos y los incluya en el
+// bundle de la función serverless. Si se usara un helper que componga el path,
+// el tracer podría no seguirlo y los archivos no estarían disponibles en prod.
 // ----------------------------------------------------------------------------
-function publicPath(...segments: string[]): string {
-  return path.join(process.cwd(), "public", ...segments)
-}
-
-const ALLURA_PATH = publicPath("fonts", "Allura-Regular.ttf")
-const IMG_IZQ_BUF = fs.readFileSync(publicPath("encabezado", "medico-izquierda.png"))
-const IMG_DER_BUF = fs.readFileSync(publicPath("encabezado", "medico-derecha.png"))
+const ALLURA_PATH = path.join(
+  process.cwd(),
+  "public",
+  "fonts",
+  "Allura-Regular.ttf"
+)
+const IMG_IZQ_BUF = fs.readFileSync(
+  path.join(process.cwd(), "public", "encabezado", "medico-izquierda.png")
+)
+const IMG_DER_BUF = fs.readFileSync(
+  path.join(process.cwd(), "public", "encabezado", "medico-derecha.png")
+)
 
 Font.register({ family: "Allura", src: ALLURA_PATH })
 Font.registerHyphenationCallback((word) => [word])
