@@ -40,7 +40,7 @@ export default function LoginPage() {
           <CardTitle className="text-xl text-blue-900">
             Sistema de Recetas Médicas
           </CardTitle>
-          <p className="text-sm text-gray-500">Clínica Mac Salud · Cusco</p>
+          {/* <p className="text-sm text-gray-500">Clínica Mac Salud · Cusco</p> */}
         </CardHeader>
 
         <CardContent className="pt-4">
